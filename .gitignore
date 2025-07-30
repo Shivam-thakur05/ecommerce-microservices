@@ -1,0 +1,78 @@
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Logs
+logs/
+*.log
+*.out
+*.err
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment variables
+.env
+.env.*.local
+env.local
+env.production
+# Build output
+dist/
+build/
+coverage/
+lib/
+out/
+tmp/
+temp/
+
+# TypeScript
+*.tsbuildinfo
+
+# IDEs and editors
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# Docker
+docker-compose.override.yml
+
+# Kubernetes
+*.local.yaml
+
+# Misc
+*.swp
+*.swo
+
+# Ignore test coverage
+coverage/
+
+# Ignore compiled files
+*.class
+
+# Ignore secrets
+secret.yml
+
+# Ignore config
+config.local.yml
+
+# Ignore generated files
+*.generated.*
+
+# Ignore by service
+services/*/node_modules/
+services/*/dist/
+services/*/coverage/
+
+# Ignore monitoring
+monitoring/prometheus/data/
+monitoring/grafana/data/
+
+# Ignore infrastructure
+infrastructure/terraform/.terraform/
+infrastructure/terraform/terraform.tfstate
+infrastructure/terraform/terraform.tfstate.backup
