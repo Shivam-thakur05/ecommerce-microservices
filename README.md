@@ -1,126 +1,224 @@
-# Microservices Architecture Project
+# MicroStore - Full-Stack E-commerce Platform
 
-## Overview
+A complete microservices-based e-commerce platform with React frontend and Node.js backend services.
 
-This project implements a microservices architecture using Node.js, Express, PostgreSQL, and MongoDB. The structure follows industry best practices for scalability, maintainability, and deployment.
-
-## Architecture Overview
-
-### Services
-
-- **User Service**: User management and authentication
-- **Product Service**: Product catalog and inventory
-- **Order Service**: Order processing and management
-- **Notification Service**: Email, SMS, and push notifications
-- **Payment Service**: Payment processing and transactions
-- **Analytics Service**: Data analytics and reporting
-
-### Technology Stack
-
-- **Runtime**: Node.js with TypeScript
-- **Frameworks**: Express.js, Fastify
-- **Databases**: PostgreSQL (relational), MongoDB (document)
-- **Message Queue**: Redis, RabbitMQ
-- **API Gateway**: Kong, AWS API Gateway
-- **Monitoring**: Prometheus, Grafana
-- **Logging**: Winston, ELK Stack
-- **Testing**: Jest, Supertest
-- **Containerization**: Docker, Docker Compose
-- **Orchestration**: Kubernetes
-
-## File Structure
+## 🏗️ Project Structure
 
 ```
 microservice/
-├── services/                    # Individual microservices
-│   ├── user-service/
-│   ├── product-service/
-│   ├── order-service/
-│   ├── notification-service/
-│   ├── payment-service/
-│   └── analytics-service/
-├── shared/                     # Shared utilities and libraries
-│   ├── common/
-│   ├── middleware/
-│   └── database/
-├── api-gateway/               # API Gateway service
-├── infrastructure/            # Infrastructure configuration
-│   ├── docker/
-│   ├── kubernetes/
-│   └── terraform/
-├── monitoring/               # Monitoring and logging
-├── docs/                    # Documentation
-└── scripts/                 # Deployment and utility scripts
+├── backend/                    # Backend microservices
+│   ├── api-gateway/           # API Gateway service
+│   ├── services/              # Individual microservices
+│   │   ├── user-service/      # User management & auth
+│   │   ├── product-service/   # Product catalog
+│   │   ├── order-service/     # Order processing
+│   │   ├── payment-service/   # Payment processing
+│   │   ├── notification-service/ # Notifications
+│   │   └── analytics-service/ # Analytics & reporting
+│   ├── shared/                # Shared utilities
+│   ├── infrastructure/        # Infrastructure configs
+│   ├── monitoring/            # Monitoring setup
+│   ├── docker-compose.yml     # Docker orchestration
+│   └── package.json           # Backend dependencies
+├── frontend/                  # React frontend application
+│   ├── src/                   # Source code
+│   │   ├── components/        # UI components
+│   │   ├── pages/            # Page components
+│   │   ├── store/            # State management
+│   │   ├── services/         # API services
+│   │   └── types/            # TypeScript types
+│   ├── public/               # Static assets
+│   └── package.json          # Frontend dependencies
+└── README.md                 # This file
 ```
 
-## Getting Started
+## 🚀 Quick Start
 
 ### Prerequisites
 
-- Node.js 18+
+- Node.js 16+
 - Docker & Docker Compose
-- PostgreSQL 14+
-- MongoDB 6+
-- Redis 7+
+- npm or yarn
 
-### Quick Start
+### Backend Setup
+
+1. **Navigate to backend directory:**
+
+   ```bash
+   cd backend
+   ```
+
+2. **Install dependencies:**
+
+   ```bash
+   npm install
+   ```
+
+3. **Set up environment:**
+
+   ```bash
+   cp env.example .env
+   # Edit .env with your configuration
+   ```
+
+4. **Start with Docker:**
+   ```bash
+   docker-compose up -d
+   ```
+
+### Frontend Setup
+
+1. **Navigate to frontend directory:**
+
+   ```bash
+   cd frontend
+   ```
+
+2. **Install dependencies:**
+
+   ```bash
+   npm install
+   ```
+
+3. **Start development server:**
+   ```bash
+   npm start
+   ```
+
+The frontend will be available at `http://localhost:3000`
+
+## 🏛️ Architecture
+
+### Backend Microservices
+
+- **API Gateway** (Port 3000) - Request routing & authentication
+- **User Service** (Port 3001) - Authentication & user management
+- **Product Service** (Port 3002) - Product catalog & search
+- **Order Service** (Port 3003) - Order processing
+- **Notification Service** (Port 3004) - Email, SMS, push notifications
+- **Payment Service** (Port 3005) - Payment processing
+- **Analytics Service** (Port 3006) - Analytics & reporting
+
+### Frontend Features
+
+- **Modern React 18** with TypeScript
+- **Tailwind CSS** for styling
+- **React Query** for data fetching
+- **Zustand** for state management
+- **Framer Motion** for animations
+- **Responsive design** for all devices
+
+## 🛠️ Development
+
+### Backend Development
 
 ```bash
-# Clone the repository
-git clone <repository-url>
-cd microservice
-
-# Install dependencies
-npm run install:all
-
-# Start development environment
-docker-compose up -d
-
-# Run services
-npm run dev
+cd backend
+npm run dev          # Start all services in development
+npm run test         # Run tests
+npm run build        # Build for production
 ```
 
-## Development Guidelines
+### Frontend Development
 
-### Code Standards
+```bash
+cd frontend
+npm start           # Start development server
+npm run build       # Build for production
+npm test           # Run tests
+```
 
-- Use TypeScript for type safety
-- Follow ESLint and Prettier configurations
-- Write comprehensive unit and integration tests
-- Use conventional commits
-- Implement proper error handling and logging
+## 📚 Documentation
 
-### Database Strategy
+- [Backend Documentation](./backend/README.md)
+- [Frontend Documentation](./frontend/README.md)
+- [API Documentation](./backend/docs/api/)
+- [Architecture Overview](./backend/docs/architecture/)
 
-- **PostgreSQL**: For transactional data, user accounts, orders, payments
-- **MongoDB**: For product catalogs, analytics, logs, flexible schemas
-- **Redis**: For caching, session management, message queues
+## 🐳 Docker Deployment
 
-### Communication Patterns
+### Full Stack Deployment
 
-- **Synchronous**: REST APIs for direct service communication
-- **Asynchronous**: Message queues for event-driven architecture
-- **Service Discovery**: Consul or Kubernetes service discovery
+```bash
+# From root directory
+docker-compose -f backend/docker-compose.yml up -d
+cd frontend && npm run build
+```
 
-## Deployment
+### Individual Services
 
-### Environment Configuration
+```bash
+cd backend
+docker-compose up user-service product-service
+```
 
-- Development: Docker Compose
-- Staging: Kubernetes with Helm
-- Production: Kubernetes with CI/CD pipelines
+## 🔧 Configuration
 
-### Monitoring & Observability
+### Environment Variables
 
-- Application metrics with Prometheus
-- Distributed tracing with Jaeger
-- Centralized logging with ELK Stack
-- Health checks and circuit breakers
+**Backend (.env in backend folder):**
 
-## Contributing
+```env
+NODE_ENV=development
+DATABASE_URL=postgresql://user:pass@localhost:5432/microservice
+REDIS_URL=redis://localhost:6379
+JWT_SECRET=your-secret-key
+```
 
-Please read CONTRIBUTING.md for details on our code of conduct and the process for submitting pull requests.
+**Frontend (.env in frontend folder):**
 
-## License
+```env
+REACT_APP_API_URL=http://localhost:3000
+REACT_APP_ENVIRONMENT=development
+```
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+## 🧪 Testing
+
+### Backend Tests
+
+```bash
+cd backend
+npm run test:unit      # Unit tests
+npm run test:integration # Integration tests
+npm run test:e2e       # End-to-end tests
+```
+
+### Frontend Tests
+
+```bash
+cd frontend
+npm test              # Run all tests
+npm run test:watch    # Watch mode
+npm run test:coverage # Coverage report
+```
+
+## 📊 Monitoring
+
+- **Prometheus** - Metrics collection
+- **Grafana** - Visualization dashboard
+- **Jaeger** - Distributed tracing
+- **ELK Stack** - Log aggregation
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Add tests
+5. Submit a pull request
+
+## 📄 License
+
+This project is licensed under the MIT License.
+
+## 🆘 Support
+
+For support and questions:
+
+- Check the documentation in each folder
+- Open an issue on GitHub
+- Review the architecture documentation
+
+---
+
+**Happy Coding! 🚀**

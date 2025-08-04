@@ -1,0 +1,85 @@
+{
+  "name": "microservice-frontend",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "@hookform/resolvers": "^5.2.1",
+    "@tanstack/react-query": "^5.84.1",
+    "@tanstack/react-query-devtools": "^5.84.1",
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^13.3.0",
+    "@testing-library/user-event": "^13.5.0",
+    "@types/jest": "^27.5.2",
+    "@types/react": "^18.0.17",
+    "@types/react-datepicker": "^4.10.0",
+    "@types/react-dom": "^18.0.6",
+    "@types/react-table": "^7.7.15",
+    "axios": "^1.4.0",
+    "clsx": "^1.2.1",
+    "crypto": "^1.0.1",
+    "crypto-browserify": "^3.12.1",
+    "dotenv": "^17.2.1",
+    "framer-motion": "^12.23.12",
+    "fs": "^0.0.1-security",
+    "jwt-decode": "^3.1.2",
+    "lucide-react": "^0.536.0",
+    "os": "^0.1.2",
+    "path": "^0.12.7",
+    "react": "^18.2.0",
+    "react-datepicker": "^4.16.0",
+    "react-dom": "^18.2.0",
+    "react-dropzone": "^14.2.3",
+    "react-error-boundary": "^6.0.0",
+    "react-helmet-async": "^1.3.0",
+    "react-hook": "^0.0.1",
+    "react-hook-form": "^7.61.1",
+    "react-hot-toast": "^2.5.2",
+    "react-intersection-observer": "^9.4.3",
+    "react-query": "^3.39.3",
+    "react-router-dom": "^7.7.1",
+    "react-scripts": "5.0.1",
+    "react-select": "^5.7.4",
+    "react-table": "^7.8.0",
+    "recharts": "^2.6.2",
+    "tailwind-merge": "^1.13.2",
+    "typescript": "^4.7.4",
+    "web-vitals": "^2.1.4",
+    "yup": "^1.7.0",
+    "zustand": "^4.3.8"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@tailwindcss/forms": "^0.5.4",
+    "@tailwindcss/typography": "^0.5.9",
+    "@types/node": "^24.1.0",
+    "@types/react-helmet-async": "^1.0.1",
+    "@types/react-router-dom": "^5.3.3",
+    "autoprefixer": "^10.4.14",
+    "postcss": "^8.4.24",
+    "tailwindcss": "^3.3.2"
+  },
+  "proxy": "http://localhost:3000"
+}

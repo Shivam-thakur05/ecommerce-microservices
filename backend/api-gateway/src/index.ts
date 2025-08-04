@@ -6,9 +6,11 @@ import compression from "compression";
 import morgan from "morgan";
 import dotenv from "dotenv";
 import { v4 as uuidv4 } from "uuid";
+import path from "path";
 
 // Load environment variables
 dotenv.config();
+dotenv.config({ path: path.resolve(__dirname, "../../.env") });
 
 const app = express();
 const PORT = process.env["API_GATEWAY_PORT"] || 3000;
@@ -31,6 +33,7 @@ app.use(
     credentials: true,
   })
 );
+
 app.use(compression());
 app.use(express.json({ limit: "10mb" }));
 app.use(express.urlencoded({ extended: true, limit: "10mb" }));
